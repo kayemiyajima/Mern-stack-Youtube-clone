@@ -1,0 +1,40 @@
+.smallMenu {
+    /* display: flex;
+    flex-direction: column; */
+    width: 72px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+  }
+  
+  .smallMenu__menu {
+    color: rgb(88,88,88);
+    font-size: 10px;
+    letter-spacing: -0.05em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  
+  .smallMenu__menu:hover {
+    background-color: rgb(236, 236, 236);
+    cursor: pointer;
+  }
+  
+  .smallMenu__menu:hover > .smallMenu__icon {
+    color: red;
+  }
+  
+  .smallMenu__menu.selected {
+    background-color: rgb(228, 228, 228);
+  }
+  
+  .smallMenu__menu.selected > .smallMenu__icon {
+    color: red;
+   }
+  
+   .smallMenu__menu.selected > .smallMenu__title {
+    font-weight: 600;
+   }
+  

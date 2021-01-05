@@ -1,0 +1,73 @@
+.registerLogin {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .registerLogin__signInForm {
+    position: absolute;
+    width: 350px;
+    height: auto;
+    min-height: 400px;
+    background-color: #fff;
+    margin: auto;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    padding: 48px 40px 36px;
+    justify-content: center;
+  }
+  
+  .registerLogin__signInForm > form {
+    margin-top: 20px;
+  }
+  
+  .registerLogin__title {
+    text-align: center;
+    color: #202124;
+  }
+  
+  .registerLogin__title > p {
+    padding-top: 8px;
+  }
+  
+  .registerLogin__errorMessage {
+    display: flex;
+    align-items: center;
+  }
+  
+  .registerLogin__errorMessage > p {
+    color: #f50057;
+    font-size: 14px;
+    padding-left: 10px;
+  }
+  
+  .registerLogin__message {
+    padding-top: 8px;
+    padding-bottom: 3px;
+    margin-top: 10px;
+  }
+  
+  .registerLogin__message > p {
+    font-size: 14px;
+    color: #5f6368;
+  }
+  
+  .registerLogin__message > a {
+    font-size: 14px;
+    color: #3f51b5;
+    text-decoration: none;
+    font-weight: 800;
+  }
+  
+  .registerLogin__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .registerLogin__bottom > a {
+    text-decoration: none;
+    color: #3f51b5;
+    font-weight: 700;
+  }

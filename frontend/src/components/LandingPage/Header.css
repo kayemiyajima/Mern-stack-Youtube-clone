@@ -1,0 +1,97 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    color: rgb(88, 88, 88);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+  
+    
+  }
+  
+  .header__menuIcon__container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header__menuIcon {
+    align-items: center;
+    text-align: center;
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+    padding: 8px;
+  }
+  
+  
+  .header__logoImage {
+    height: 50px;
+    object-fit: contain;
+    text-align: left;
+  }
+  
+  .header__searchBox {
+    display: flex;
+    flex: 0.7;
+    align-items: center;
+    border: 1px solid lightgray;
+    margin-left: 40px;
+    border-radius: 2px;
+  
+  }
+  
+  .header__searchBox > input {
+    flex: 1;
+    height: 30px;
+    border-top: 1px;
+    border-bottom: 1px;
+    border-left: 1px;
+    margin-left: 4px;
+    border-color: lightgray;
+  }
+  
+  .header__searchButton {
+    width: 20px !important;
+    height: 20px !important;
+    color: gray;
+  
+  }
+  
+  .searchButton__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 30px;
+    background-color: #fafafa;
+    padding: 1px 6px;
+  }
+  
+  .searchButton__container:hover {
+    background-color: rgb(230,230,230);
+  }
+  
+  .searchButton__container:hover > .header__searchButton {
+    color: #030303;
+  }
+  
+  .header__icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logoutIcon:hover {
+    cursor: pointer;
+  }
+  
+  .header__icon {
+    margin-right: 25px;
+    color: rgb(88,88,88);
+  }
+  
+  .header__icons > a {
+    text-decoration: none;
+  }
