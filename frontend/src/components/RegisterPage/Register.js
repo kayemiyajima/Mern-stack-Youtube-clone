@@ -2,23 +2,36 @@ import React, { useState } from 'react';
 import './Register.css';
 import { Typography, TextField, Button, Checkbox, FormControlLabel } from '@material-ui/core';
 import WarningIcon from '@material-ui/icons/Warning';
-import { Link } from 'react-router-dom';
+import FileBase from 'react-file-base64';
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../../actions/user_actions';
 
 function Register() {
+    const dispatch = useDispatch();
+    const history = useHistory();
 
     const [dataToRegister, setDataToRegister] = useState({
         name: "",
         lastname: "",
         email: "",
-        password: ""
-      });
+        password: "",
+        avatarImage: ''
+    });
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
     const [error, setError] = useState('');
     const [checked, setChecked] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-    }
+        console.log(dataToRegister);
+        if (dataToRegister.password !== passwordConfirmation){
+            setError('passwords mismatch');
+        } else {
+            dispatch(addUser(dataToRegister))
+            .then(history.push('./login'));
+        }
+    };
 
     const handleCheckBoxChange = (e) => {
         setChecked(e.target.checked);
@@ -90,27 +103,37 @@ function Register() {
                             type={checked ? "text" : "password"}
                             className="validate"
                         />
-                        <br />
-                        <p>Use 8 or more characters.</p>
-                        {error ? 
+                        <div className='register__form__password__detail'>
+                            <FormControlLabel
+                                control={
+                                <Checkbox
+                                    checked={checked}
+                                    onChange={handleCheckBoxChange}
+                                    color="primary"
+                                    fontSize="small"
+                                />
+                                }
+                                label="Show password"
+                            />
+                            <p>* Use 8 or more characters.</p>
+                        </div>
+                    </div>
+                    <br />
+                    <div className='register__fileInput'>
+                            <p>Profile Image*</p>
+                            <FileBase
+                                type='file'
+                                multiple={false}
+                                onDone={({ base64 }) => 
+                                    setDataToRegister({ ...dataToRegister, avatarImage: base64})}
+                            />
+                    </div>
+                    {error ? 
                         <div className="registerLogin__errorMessage">
                             <WarningIcon color="secondary"/>
                             <p>{error}</p>
                         </div> : null
                     }
-                        <FormControlLabel
-                            control={
-                            <Checkbox
-                                checked={checked}
-                                onChange={handleCheckBoxChange}
-                                // name="checkedB"
-                                color="primary"
-                                fontSize="small"
-                            />
-                            }
-                            label="Show password"
-                        />
-                    </div>
                     <div className="register__bottom">
                         <Link to={'/user/login'}>
                             <p>Sign in instead</p>

@@ -8,15 +8,22 @@ import NotificationsSharpIcon from '@material-ui/icons/NotificationsSharp';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { Button, Tooltip, Avatar } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { logoutUser } from '../actions/user_actions'
+import { useSelector, useDispatch } from 'react-redux';
+import { logoutUser } from '../../actions/user_actions'
 
 
 function Header() {
+
+    const user = useSelector((state)=> state.user);
+    const userInfo = user.user;
+    console.log(user);
+    const dispatch = useDispatch();
+    console.log(document.cookie);
+
     const [inputSearch, setInputSearch] = useState('');
 
     const handleLogout = (e) => {
-
+        dispatch(logoutUser());
     }
 
     return (
@@ -55,12 +62,12 @@ function Header() {
             <AppsSharpIcon className="header__icon"/>
             <NotificationsSharpIcon className="header__icon"/>
             
-            {false ? 
+            {user.loginSuccess ? 
             <Tooltip title="LOG OUT" >
-                <Avatar className="logoutIcon" onClick={handleLogout}>
-                {/* {user.user.name.substr(0, 1)} */}
-                K
-                </Avatar> 
+                <Avatar 
+                    className="logoutIcon" 
+                    onClick={handleLogout}
+                    src={userInfo.avatarImage} />
             </Tooltip>
             :
             <Link to={'/user/login'}>

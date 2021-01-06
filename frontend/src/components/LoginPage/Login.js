@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Typography, TextField, Button } from '@material-ui/core';
 import './Login.css';
 import { Link, useHistory } from 'react-router-dom';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { loginUser, authUser } from '../../actions/user_actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser, authUser } from '../../actions/user_actions';
 
 import WarningIcon from '@material-ui/icons/Warning';
 
 function Login() {
-    // const dispatch = useDispatch();
-    // const history = useHistory();
-    // const user = useSelector((state)=> state.user);
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const user = useSelector((state)=> state.user);
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -31,19 +31,19 @@ function Login() {
             password: password
         };
 
-        // dispatch(loginUser(dataToSubmit));
+        dispatch(loginUser(dataToSubmit));
 
-        // if(user.loginSuccess){
-        //     await setErrors('Failed to login, try it again');
-        // }
+        if(user.loginSuccess){
+            await setErrors('Failed to login, try it again');
+        }
     };
 
-    // useEffect(() => {
-    //     if(user.loginSuccess){
-    //         dispatch(authUser());
-    //         history.push('/');
-    //     }
-    // },[dispatch, history, user.loginSuccess]);
+    useEffect(() => {
+        if(user.loginSuccess){
+            dispatch(authUser());
+            history.push('/');
+        }
+    },[dispatch, history, user.loginSuccess]);
 
     return (
         <div className="registerLogin">
