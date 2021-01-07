@@ -2,32 +2,34 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-right: 16px;
+    padding-left: 0;
     color: rgb(88, 88, 88);
     position: sticky;
     top: 0;
     z-index: 1;
     background-color: white;
-  
-    
   }
   
-  .header__menuIcon__container {
+  .header__menuContainer {
     display: flex;
-    align-items: center;
+    justify-content: center;
   }
   
-  .header__menuIcon {
-    align-items: center;
-    text-align: center;
+  .header__menuContainer__icon {
+    padding-right: 16px;
+    padding-left: 6px;
+  }
+
+  .header__menuContainer__sharpIcon {
     width: 24px;
     height: 24px;
-    margin-right: 16px;
     padding: 8px;
   }
   
-  
-  .header__logoImage {
+  .header__menuContainer__logoImage {
     height: 50px;
     object-fit: contain;
     text-align: left;

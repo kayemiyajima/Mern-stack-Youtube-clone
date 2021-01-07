@@ -1,0 +1,58 @@
+.drawerMenu {
+    width: 240px;
+    height: 100vh;
+    margin: 0;
+    /* position: absolute;
+    top: 0;
+    left: -100%; */
+    background-color: white;
+}
+  
+/* .fixed_menuIcon {
+    width: 24px;
+    height: 24px;
+    padding: 8px;
+    position: absolute;
+    left: 16px;
+    top: 23px;
+    z-index: 2;
+  } */
+  
+.drawerMenu__top {
+    display: flex;
+    align-items: center;
+    height: 76px;
+    padding-left: 16px;
+    /* padding-top: 4px;
+    padding-bottom: 4px; */
+    position: sticky;
+    top: 0;
+    background-color: white;
+  }
+  
+  .menu-bars:visited {
+    color: #606060;
+  }
+  
+.drawerMenu__menuIcon {
+    align-items: center;
+    text-align: center;
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+    padding: 8px;
+}
+  
+.drawerMenu__logoImage {
+    height: 50px;
+    object-fit: contain;
+    text-align: left;
+}
+  
+.drawerMenu > hr {
+    height: 1px;
+    border: 0;
+    background-color: rgb(228, 228, 228);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

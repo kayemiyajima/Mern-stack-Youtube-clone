@@ -46,9 +46,9 @@ function Login() {
     },[dispatch, history, user.loginSuccess]);
 
     return (
-        <div className="registerLogin">
-            <div className="registerLogin__signInForm">
-                <div className='registerLogin__title'>
+        <div className="login">
+            <div className="login__signInForm">
+                <div className='login__title'>
                     <Typography variant="h4">Sign in</Typography>
                     <p>to continue to YouTube - Clone</p>
                 </div>
@@ -76,17 +76,17 @@ function Login() {
                     <br />
                     <br />
                     {errors ? 
-                        <div className="registerLogin__errorMessage">
+                        <div className="login__errorMessage">
                             <WarningIcon color="secondary"/>
                             <p>{errors}</p>
                         </div> : null
                     }
                     <br />
-                    <div className="registerLogin__message">
+                    <div className="login__message">
                         <p>Not your computer? Use Guest mode to sign in privately.</p>
                         <a href="/"> Learn more</a>
                     </div>
-                    <div className="registerLogin__bottom">
+                    <div className="login__bottom">
                         <Link to={'/user/register'}>
                             <p>Create account</p>
                         </Link>

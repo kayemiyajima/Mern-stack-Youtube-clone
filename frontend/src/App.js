@@ -5,7 +5,8 @@ import SmallMenu from './components/LandingPage/SmallMenu';
 import Home from './components/LandingPage/Home';
 import Register from './components/RegisterPage/Register';
 import Login from './components/LoginPage/Login';
-import UploadVideo from './components/UploadVideoPage/UploadVideo'
+import UploadVideo from './components/UploadVideoPage/UploadVideo';
+import VideoPage from './components/VideoPage/VideoPage';
 
 function App() {
   return (
@@ -37,9 +38,10 @@ function App() {
               </div>
           </Route>
 
-          {/* <Route path="/video/:videoId">
+          {/* <Route path="/video/:videoId"> */}
+          <Route path="/video/videopage">
                 <VideoPage />
-          </Route> */}
+          </Route>
           
           <Route path="/">
             <div className="app__page">

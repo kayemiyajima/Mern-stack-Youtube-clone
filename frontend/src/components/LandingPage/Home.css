@@ -1,0 +1,23 @@
+.home {
+    flex:1;
+    background-color: #f9f9f9;
+    padding: 40px 20px;
+    padding-bottom: 0;
+  }
+  
+  .home > hr {
+    height: 2px;
+    border: 0;
+    background-color: rgb(228,228,228);
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  /* .recommendedVideos {
+    display: flex;
+    flex-wrap: wrap;
+  } */
+
+  .test {
+      border: 1px solid gray;
+  }

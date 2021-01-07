@@ -1,11 +1,10 @@
-.registerLogin {
-    margin: 0;
+  .login {
+    margin: 0 auto;
     display: flex;
     justify-content: center;
   }
   
-  .registerLogin__signInForm {
-    position: absolute;
+  .login__signInForm {
     width: 350px;
     height: auto;
     min-height: 400px;
@@ -17,56 +16,56 @@
     justify-content: center;
   }
   
-  .registerLogin__signInForm > form {
+  .login__signInForm > form {
     margin-top: 20px;
   }
   
-  .registerLogin__title {
+  .login__title {
     text-align: center;
     color: #202124;
   }
   
-  .registerLogin__title > p {
+  .login__title > p {
     padding-top: 8px;
   }
   
-  .registerLogin__errorMessage {
+  .login__errorMessage {
     display: flex;
     align-items: center;
   }
   
-  .registerLogin__errorMessage > p {
+  .login__errorMessage > p {
     color: #f50057;
     font-size: 14px;
     padding-left: 10px;
   }
   
-  .registerLogin__message {
+  .login__message {
     padding-top: 8px;
     padding-bottom: 3px;
     margin-top: 10px;
   }
   
-  .registerLogin__message > p {
+  .login__message > p {
     font-size: 14px;
     color: #5f6368;
   }
   
-  .registerLogin__message > a {
+  .login__message > a {
     font-size: 14px;
     color: #3f51b5;
     text-decoration: none;
     font-weight: 800;
   }
   
-  .registerLogin__bottom {
+  .login__bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
   }
   
-  .registerLogin__bottom > a {
+  .login__bottom > a {
     text-decoration: none;
     color: #3f51b5;
     font-weight: 700;

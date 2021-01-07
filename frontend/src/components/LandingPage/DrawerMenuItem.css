@@ -1,0 +1,40 @@
+.drawerMenuItem {
+    display: flex;
+    align-items: center;
+    padding: 10px 25px;
+  }
+  
+.drawerMenuItem:hover {
+    background-color: rgb(238, 238, 238);
+    cursor: pointer;
+  }
+  
+.drawerMenuItem__icon {
+    color: #606060;
+    font-size: ex-large !important;
+  }
+  
+.drawerMenuItem:hover >.drawerMenuItem__icon {
+   color: red;
+  }
+  
+.drawerMenuItem__title {
+    flex: 1;
+    margin-left: 25px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  
+.drawerMenuItem.selected {
+    background-color: rgb(228, 228, 228);
+  }
+  
+.drawerMenuItem.selected >.drawerMenuItem__icon {
+    color: red;
+   }
+  
+.drawerMenuItem.selected >.drawerMenuItem__title {
+    font-weight: 600;
+   }
+  
+   
