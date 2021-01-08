@@ -38,15 +38,18 @@ function App() {
               </div>
           </Route>
 
-          {/* <Route path="/video/:videoId"> */}
-          <Route path="/video/videopage">
+          <Route path="/video/:videoId">
                 <VideoPage />
           </Route>
           
           <Route path="/">
             <div className="app__page">
-              <SmallMenu />
-              <Home /> 
+              <div className="app__page__smallMenu">
+                <SmallMenu />
+              </div>
+              <div calssName='app__page__home'>
+                <Home /> 
+              </div>
             </div>
           </Route>
         </Switch>

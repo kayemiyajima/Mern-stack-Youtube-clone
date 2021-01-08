@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './SelectedVideo.css';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
@@ -7,28 +7,32 @@ import PlaylistAddIcon from '@material-ui/icons/PlaylistAdd';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import Avatar from "@material-ui/core/Avatar";
 import { Button } from "@material-ui/core";
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import moment from 'moment';
+import { getVideo, likeVideo, dislikeVideo } from '../../actions/video_actions';
 
-function SelectedVideo(props) {
+function SelectedVideo() {
+
+    const dispatch = useDispatch();
+    const video = useSelector((state)=> state.video);
+    const writer = video.writer;
+    console.log(writer);
 
     const videoId = useParams();
-    const [video, setVideo] = useState([]);
-    const [writer, setWriter] = useState([]);
 
     useEffect(()=> {
-        axios.post(`http://localhost:5000/api/video/getVideo`, videoId)
-        .then(res => {
-            if(res.data.success) {
-                setVideo(res.data.video);
-                setWriter(res.data.video.writer)
-            } else {
-                alert('Failed to get video')
-            }
-        })
+        dispatch(getVideo(videoId));
     }, [videoId]);
 
+    const handleLike = () => {
+        dispatch(likeVideo(video._id));
+    }
+
+    const handleDislike = () => {
+        dispatch(dislikeVideo(video._id));
+    }
+    
     return (
         <div className="selectedVideo">
             <div className="selectedVideo__videoContainer">
@@ -46,12 +50,16 @@ function SelectedVideo(props) {
                         </div>
                         <div className="selectedVideo__info__title__below__icons">
                             <div className="selectedVideo__info__icon__container">
-                                <ThumbUpAltIcon className="icon" />
-                                <p>14K</p>
+                                <Button onClick={handleLike}>
+                                    <ThumbUpAltIcon className="icon" />
+                                    <p>{video.likeCount}</p>
+                                </Button>
                             </div>
                             <div className="selectedVideo__info__icon__container">
-                                <ThumbDownIcon className="icon"/>
-                                <p>1.4K</p>
+                                <Button onClick={handleDislike}>
+                                    <ThumbDownIcon className="icon"/>
+                                    <p>{video.dislikeCount}</p>
+                                </Button>
                             </div>
                             <div className="selectedVideo__info__icon__container">
                                 <ShareIcon className="icon"/>
@@ -71,11 +79,15 @@ function SelectedVideo(props) {
                 <div className="selectedVideo__info__second">
                     <div className="selectedVideo__info__detail__top">
                         <div className="selectedVideo__info__author">
-                            <Avatar className="selectedVideo__info__author__avatar">
-                                
-                            </Avatar>
+                            <Avatar 
+                                className="selectedVideo__info__author__avatar"
+                                src={writer.avatarImage}
+                                alt={writer.name}
+                            />
                             <div className="slectedVideo__info__author__name">
-                                <h5>{writer.name}</h5>
+                                <h5>
+                                    {writer.name + ' ' + writer.lastname}
+                                    </h5>
                                 <p>8.92K subscribers</p>
                             </div>
                         </div>

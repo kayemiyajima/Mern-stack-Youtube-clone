@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function VideoCard({ videoId, image, title, channel, views, timestamp, channelImage, minutes, seconds } ) {
   return (
     <div className="videoCard__container">
-      <Link to={`/video/${videoId}`}>
+      <Link to={`/video/${videoId}`} color="inherit" style={{textDecoration: 'none'}}>
         <div className="videoCard__view">
           <img className="videoCard__thumbnail" src={image} alt={title}/>
           <div className="videoCard__duration">
@@ -15,26 +15,24 @@ function VideoCard({ videoId, image, title, channel, views, timestamp, channelIm
         </div>
       </Link>
       <div className="videoCard__info">
-        <div className="videoCard__info__1">
+        <div className="videoCard__info__avatar">
           <Avatar 
             className="videoCard__avatar" 
             alt={channel} 
             src={channelImage} 
-          >
-            {channel.substr(0, 1)}
-          </Avatar>
+          />
         </div>
-        <div className="videoCard__info__2">
-          <div className="videoCard__title">
+        <Link to={`/video/${videoId}`} color="inherit" style={{textDecoration: 'none'}}>
+          <div className="videoCard__info__title">
             <h4>{title}</h4>
           </div>
-          <div className="videoCard__text">
-            <p>{channel}</p>
-            <p>
-              {views}views • {timestamp}
-            </p>
-          </div>
-        </div>
+        </Link>
+      </div>
+      <div className="videoCard__text">
+        <p>{channel}</p>
+        <p>
+          {views}views • {timestamp}
+        </p>
       </div>
     </div>
   )

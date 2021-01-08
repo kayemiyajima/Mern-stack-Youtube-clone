@@ -143,7 +143,7 @@ function UploadVideoPage() {
         }
     },[thumbnail]);
 
-    // if(user.loginSuccess){
+    if(user.loginSuccess){
     return (
         <div className="uploadVideo">
             <div className="uploadVideo__container">
@@ -254,31 +254,31 @@ function UploadVideoPage() {
             </Backdrop>
         </div>
     )
-    // )} else {
-    //     return (
-    //         <div>
-    //             <Dialog
-    //                 open={true}
-    //                 aria-labelledby="alert-dialog-title"
-    //                 aria-describedby="alert-dialog-description"
-    //             >
-    //                 <DialogTitle id="alert-dialog-title">{"Are you registered?"}</DialogTitle>
-    //                 <DialogContent>
-    //                 <DialogContentText id="alert-dialog-description">
-    //                     To upload videos, please sign in first!
-    //                 </DialogContentText>
-    //                 </DialogContent>
-    //                 <DialogActions>
-    //                 <Link to={'/user/login'}>
-    //                     <Button color="primary">
-    //                         SIGN IN
-    //                     </Button>
-    //                 </Link>
-    //                 </DialogActions>
-    //             </Dialog>
-    //         </div>
-    //     )
-    // }
+    } else {
+        return (
+            <div>
+                <Dialog
+                    open={true}
+                    aria-labelledby="alert-dialog-title"
+                    aria-describedby="alert-dialog-description"
+                >
+                    <DialogTitle id="alert-dialog-title">{"Are you registered?"}</DialogTitle>
+                    <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                        To upload videos, please sign in first!
+                    </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                    <Link to={'/user/login'}>
+                        <Button color="primary">
+                            SIGN IN
+                        </Button>
+                    </Link>
+                    </DialogActions>
+                </Dialog>
+            </div>
+        )
+    }
 }
 
 export default UploadVideoPage
