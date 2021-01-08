@@ -1,11 +1,11 @@
 .app__page {
     display: flex;
+    align-items: flex-start;
   }
 
 .app__page__smallMenu {
   position: sticky;
-  top: 0;
-  z-index: 0;
+  top: 85px;
 }
 
 .app__page__home {

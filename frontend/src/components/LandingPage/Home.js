@@ -33,7 +33,7 @@ function Home() {
                         videoId={video._id}
                         image={`http://localhost:5000/${video.thumbnail}`}
                         title={video.title}
-                        channel={video.writer.name}
+                        channel={video.writer.name + ' ' + video.writer.lastname}
                         views={video.views}
                         timestamp={moment(video.createdAt).format("MMM DD YYYY")}
                         channelImage={video.writer.avatarImage}

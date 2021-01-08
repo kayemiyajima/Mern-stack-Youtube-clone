@@ -16,14 +16,13 @@ function SelectedVideo() {
 
     const dispatch = useDispatch();
     const video = useSelector((state)=> state.video);
-    const writer = video.writer;
-    console.log(writer);
+    const writer = useSelector((state)=> state.video.writer);
 
     const videoId = useParams();
 
     useEffect(()=> {
         dispatch(getVideo(videoId));
-    }, [videoId]);
+    }, [dispatch, videoId]);
 
     const handleLike = () => {
         dispatch(likeVideo(video._id));
@@ -81,8 +80,8 @@ function SelectedVideo() {
                         <div className="selectedVideo__info__author">
                             <Avatar 
                                 className="selectedVideo__info__author__avatar"
-                                src={writer.avatarImage}
-                                alt={writer.name}
+                                src={video.writer.avatarImage}
+                                alt={video.writer.name}
                             />
                             <div className="slectedVideo__info__author__name">
                                 <h5>

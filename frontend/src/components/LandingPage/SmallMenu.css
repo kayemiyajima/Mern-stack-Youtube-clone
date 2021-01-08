@@ -1,8 +1,6 @@
 .smallMenu {
     width: 72px;
     background-color: white;
-    position: sticky;
-    top: 0;
   }
   
   .smallMenu__menu {
@@ -11,6 +9,7 @@
     letter-spacing: -0.05em;
     padding-top: 10px;
     padding-bottom: 10px;
+    margin-bottom: 10px;
     text-align: center;
   }
   

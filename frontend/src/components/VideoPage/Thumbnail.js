@@ -31,7 +31,7 @@ function Thumbnail() {
                         </div>
                         <div className="thumbnail__container__info">
                             <h5>{video.title}</h5>
-                            <p>{video.writer.name}</p>
+                            <p>{video.writer.name + ' ' + video.writer.lastname}</p>
                             <p>{video.views} views • {moment(video.createdAt).format('MMM DD YYYY')}</p>
                         </div>
                     </div>

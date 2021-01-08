@@ -13,41 +13,28 @@ function App() {
     <Router>
       <Header />
         <Switch>
-          {/* <Route path="/search/:searchTerm">
-            <div className="app__page">
-              <SmallMenu />
-              <SearchPage /> 
-            </div>
-          </Route> */}
-
           <Route path="/video/upload">
-            <div className="app__page">
               <UploadVideo /> 
-            </div>
           </Route>
 
           <Route path="/user/register">
-            <div className="app__page">
               <Register />
-            </div>
           </Route>
 
           <Route path="/user/login">
-              <div className='app__page'>
                 <Login />
-              </div>
           </Route>
 
           <Route path="/video/:videoId">
                 <VideoPage />
           </Route>
           
-          <Route path="/">
-            <div className="app__page">
-              <div className="app__page__smallMenu">
+          <Route path='/'>
+            <div className='app__page'>
+              <div className='app__page__smallMenu'>
                 <SmallMenu />
               </div>
-              <div calssName='app__page__home'>
+              <div className='app__page__home'>
                 <Home /> 
               </div>
             </div>
