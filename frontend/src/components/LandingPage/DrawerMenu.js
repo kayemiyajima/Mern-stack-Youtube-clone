@@ -15,7 +15,6 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import FlagIcon from '@material-ui/icons/Flag';
 import HelpIcon from '@material-ui/icons/Help';
 import FeedbackIcon from '@material-ui/icons/Feedback';
-import { Link } from 'react-router-dom';
 
 function DrawerMenu({ toggleDrawer }) {
 

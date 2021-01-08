@@ -2,6 +2,7 @@ import express from "express";
 import multer from "multer";
 import ffmpeg from "fluent-ffmpeg";
 import { Video } from "../models/Video.js";
+import { getVideo, likeVideo, dislikeVideo } from '../controllers/video.js';
 
 const router = express.Router();
 
@@ -90,16 +91,8 @@ router.post("/thumbnail", (req, res) => {
     });
 });
 
-router.post('/getVideo', (req, res)=> {
-  Video.findOne({ '_id': req.body.videoId})
-  .populate('writer')
-  .exec((err, video) => {
-    if(err) {
-      res.status(400).send(err);
-    } else {
-        res.status(200).send({ success: true, video })
-    }
-  });
-});
+router.post('/getVideo', getVideo);
+router.patch(`/:id/likeVideo`, likeVideo);
+router.patch(`/:id/dislikeVideo`, dislikeVideo);
 
 export default router;
