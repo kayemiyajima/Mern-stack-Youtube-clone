@@ -5,31 +5,31 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 
 
-function Thumbnails() {
+function Thumbnail() {
     const [videos, setVideos] = useState([]);
     console.log(videos);
 
-    // useEffect(()=> {
-    //     axios.get(`http://localhost:5000/api/video/getvideos`)
-    //     .then(res => {
-    //       if(res.data.success){
-    //         setVideos(res.data.videos);
-    //       }
-    //     })
-    //   },[])
+    useEffect(()=> {
+        axios.get(`http://localhost:5000/api/video/getvideos`)
+        .then(res => {
+          if(res.data.success){
+            setVideos(res.data.videos);
+          }
+        })
+      },[])
 
     return (
-        <div className="thumbnails">
+        <div className="thumbnail">
             {videos.map((video) => (
-                <Link to={`/video/${video._id}`}>
-                    <div className="thumbnails__container">
-                        <div className="thumbnails__container__view">
+                <Link to={`/video/${video._id}`} color="inherit" style={{textDecoration: 'none'}}>
+                    <div className="thumbnail__container">
+                        <div className="thumbnail__container__view">
                             <img src={`http://localhost:5000/${video.thumbnail}`} alt={video.title} />
-                            <div className="thumbnails__duration">
-                                <span>{Math.floor(video.duration / 60)} : {Math.floor(video.duration - (Math.floor(video.duration / 60)) * 60)}</span>
+                            <div className="thumbnail__duration">
+                                <span>{Math.floor(video.duration / 60)} : {('0' +(Math.floor(video.duration - (Math.floor(video.duration / 60)) * 60))).slice(-2)}</span>
                             </div>
                         </div>
-                        <div className="thumbnails__container__info">
+                        <div className="thumbnail__container__info">
                             <h5>{video.title}</h5>
                             <p>{video.writer.name}</p>
                             <p>{video.views} views • {moment(video.createdAt).format('MMM DD YYYY')}</p>
@@ -41,4 +41,4 @@ function Thumbnails() {
     )
 }
 
-export default Thumbnails
+export default Thumbnail

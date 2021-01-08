@@ -26,6 +26,14 @@ const videoSchema = new Schema({
     views: {
         type: Number
     },
+    likeCount: {
+        type: Number,
+        default: 0
+    },
+    dislikeCount: {
+        type: Number,
+        default: 0
+    },
     duration: {
         type: String
     },

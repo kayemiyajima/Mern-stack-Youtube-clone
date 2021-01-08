@@ -7,15 +7,28 @@ import { Grid, Typography } from '@material-ui/core';
 
 function Home() {
 
-    const [Videos, setVideos] = useState([]);
+    const [videos, setVideos] = useState([]);
+
+    useEffect(() => {
+        axios.get('/api/video/getVideos')
+            .then(response => {
+                if (response.data.success) {
+                    console.log(response.data.videos)
+                    setVideos(response.data.videos)
+                } else {
+                    alert('Failed to get Videos')
+                }
+            })
+    }, [])
+
 
     return (
         <div className='home'>
             <Typography variant="h5">Recommended</Typography>
             <hr />
             <Grid container spacing={2}>
+                {videos.map((video) => (
                 <Grid item xs={6} sm={4} md={3}>
-                {Videos.map((video) => (
                     <VideoCard 
                         videoId={video._id}
                         image={`http://localhost:5000/${video.thumbnail}`}
@@ -25,10 +38,10 @@ function Home() {
                         timestamp={moment(video.createdAt).format("MMM DD YYYY")}
                         channelImage={video.writer.avatarImage}
                         minutes={Math.floor(video.duration / 60)}
-                        seconds={Math.floor(video.duration - (Math.floor(video.duration / 60)) * 60)}
+                        seconds={('0' + (Math.floor(video.duration - (Math.floor(video.duration / 60)) * 60))).slice(-2)}
                     />
-                ))}
                 </Grid>
+                ))}
             </Grid>
         </div>
     )
